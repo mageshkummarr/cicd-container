@@ -10,7 +10,7 @@ phases:
       - docker tag demoapp:latest 8809312967587.dkr.ecr.us-east-1.amazonaws.com/demorep:latest
   post_build:
     commands:
-      - docker push 809312967587.dkr.ecr.us-east-1.amazonaws.com/demorep:latest
+      - docker push 809312967587.dkr.ecr.us-east-1.amazonaws.com/demorep
       - printf '[{"demoapp,"imageUri":"%s"}]' 809312967587.dkr.ecr.us-east-1.amazonaws.com/demorep > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
