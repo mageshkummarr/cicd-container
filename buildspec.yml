@@ -6,11 +6,11 @@ phases:
       - $(aws ecr get-login --no-include-email --region us-east-1)
   build:
     commands:
-      - docker build -t youtube:latest .
-      - docker tag <IMAGE_NAME> 809312967587.dkr.ecr.us-east-1.amazonaws.com/demorep
+      - docker build -t demoapp:latest .
+      - docker tag demoapp:latest 809312967587.dkr.ecr.us-east-1.amazonaws.com/:latest
   post_build:
     commands:
-      - docker push 809312967587.dkr.ecr.us-east-1.amazonaws.com/demorep
-      - printf '[{"name":<TASK_DEFINITION_NAME>,"imageUri":"%s"}]' <ECR_URL> > imagedefinitions.json
+      - docker push 809312967587.dkr.ecr.us-east-1.amazonaws.com/demorep:latest
+      - printf '[{"demoapp,"imageUri":"%s"}]' 809312967587.dkr.ecr.us-east-1.amazonaws.com/demorep > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
