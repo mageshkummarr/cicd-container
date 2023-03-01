@@ -7,10 +7,10 @@ phases:
   build:
     commands:
       - docker build -t youtube:latest .
-      - docker tag <IMAGE_NAME> <ECR_URL>
+      - docker tag <IMAGE_NAME> 809312967587.dkr.ecr.us-east-1.amazonaws.com/demorep
   post_build:
     commands:
-      - docker push <ECR_URL>
+      - docker push 809312967587.dkr.ecr.us-east-1.amazonaws.com/demorep
       - printf '[{"name":<TASK_DEFINITION_NAME>,"imageUri":"%s"}]' <ECR_URL> > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
