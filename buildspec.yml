@@ -6,8 +6,8 @@ phases:
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 809312967587.dkr.ecr.us-east-1.amazonaws.com
   build:
     commands:
-      - docker build -t demoapp:latest .
-      - docker tag demoapp:latest 8809312967587.dkr.ecr.us-east-1.amazonaws.com/demorep:latest
+      - docker build -t demoapp1:latest .
+      - docker tag demoapp1:latest 8809312967587.dkr.ecr.us-east-1.amazonaws.com/demorep:latest
   post_build:
     commands:
       - docker push 809312967587.dkr.ecr.us-east-1.amazonaws.com/demorep:latest
